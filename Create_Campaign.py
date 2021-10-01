@@ -1,6 +1,9 @@
 import smtplib
 import time
+
+import pyperclip
 from fpdf import FPDF
+import pyperclip as pc
 
 from selenium import webdriver
 
@@ -21,24 +24,24 @@ driver.find_element_by_xpath("//div/div[@id='wrapper']/div/div[2]/div/div/div/ta
 driver.find_element_by_xpath("//div[@class='main_wrapper']/div/ul/li[@class='nav-item']/a/span[@class='nav-link-text campaigns_icon']").click()
 
 driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div[@class='container-fluid']/div/div/a[@class='btn btn-primary create-latest-campaign take-tour-campaign']").click()
-campaign = "one"
+
 try:
-    driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/form/div[@class='row step-one-spacing']/div/div/input").send_keys("Automation Email Test Campaign ")
+    driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/form/div[@class='row step-one-spacing']/div/div/input").send_keys("Automation Email Test Campaign")
     print("Campaign name available")
 except Exception as camp_name:
     driver.find_element_by_xpath(
         "//div[@class='main_wrapper']/div[@id='wrapper']/form/div[@class='row step-one-spacing']/div/div/input").send_keys(
         "New Automation Email Test Campaign ")
     print("campaign name not available", camp_name)
-driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/form/div[@class='row step-one-spacing']/div/div/input").click()
+driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/form/div[@id='accordioncamp']/div/div[@id='headingTwo']/h6/input").click()
 
 driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/form/div[@class='row create-campaign-button']/button").click()
 time.sleep(5)
 
 #to get campaign email id
 
-campaign_Email_id = driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div/div/form/div[@class='top_main_camp_div']/div[@class='row table-created-campaign nopad']/div/div/div/table/tbody/tr[2]/td[3]/a[@class='azure-copy']/img".)
-
+driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div/div/form/div[@class='top_main_camp_div']/div[@class='row table-created-campaign nopad']/div/div/div/table/tbody/tr[2]/td[3]/a[@class='azure-copy']").click()
+campaign_Email_id = pyperclip.paste()
 #send email to campaign
 gmail_id = "ram1wayit@gmail.com"
 gmail_password = "Crochet@786"
@@ -58,6 +61,11 @@ try:
 except Exception as ex:
     print("Something went wrong, Email not send", ex)
 
+driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div/div/form/div[@class='tab-content campTabs cmpny-contact-tab-sec']/div[@class='tab-pane active']/div[@class='row confirm-notice']/div/input").click()
+driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div[@class='tabbable-panel Campaigns-tabs']/div/form/div[@class='tab-content campTabs cmpny-contact-tab-sec']/div[@class='tab-pane active']/div[@class='row next-step-button']/div/div/a").click()
+time.sleep(20)
+
+driver.refresh()
 
 
 # txt = module_name.text
