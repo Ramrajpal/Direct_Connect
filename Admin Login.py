@@ -2,9 +2,6 @@ import time
 from selenium import webdriver
 
 
-
-
-
 driver = webdriver.Chrome("C:/Users/Tester/PycharmProjects/pythonProject/Chrome/chromedriver.exe")
 driver.maximize_window()
 driver.get("http://business.directconnect.com/ctwdr_dmlogin")

@@ -52,7 +52,7 @@ body = "Name: Text automation /n Email: Test@yopmail.com /n Phone: 123456789 /n 
 try:
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp_server.login(gmail_id,gmail_password)
-    smtp_server.sendmail(sent_from, to)
+    smtp_server.sendmail(sent_from, to, subject,body)
     smtp_server.close()
     print("Email sent Successful")
 except Exception as ex:
