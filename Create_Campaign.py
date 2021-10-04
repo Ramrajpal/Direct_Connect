@@ -26,7 +26,7 @@ try:
     driver.find_element_by_xpath("//div[@class='main_wrapper']/div/ul/li[@class='nav-item']/a/span[@class='nav-link-text campaigns_icon']").click()
 except Exception :
     print("Element not clicked")
-    time.sleep(3)
+    time.sleep(5)
     driver.find_element_by_xpath(
         "//div[@class='main_wrapper']/div/ul/li[@class='nav-item']/a/span[@class='nav-link-text campaigns_icon']").click()
 time.sleep(3)
@@ -78,6 +78,28 @@ except Exception as ex:
 
 driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div/div/form/div[@class='tab-content campTabs cmpny-contact-tab-sec']/div[@class='tab-pane active']/div[@class='row confirm-notice']/div/input").click()
 driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div[@class='tabbable-panel Campaigns-tabs']/div/form/div[@class='tab-content campTabs cmpny-contact-tab-sec']/div[@class='tab-pane active']/div[@class='row next-step-button']/div/div/a").click()
+time.sleep(20)
+Refrsh_page = driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div/div/form/div[@class='tab-content campTabs cmpny-contact-tab-sec']/div[@class='tab-pane active']/div[@class='row add-tags-here']/div/div/div/div/div/div/div/span/a")
+#
+for i in range(10):
+    try:
+        driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div/div/form/div[@class='tab-content campTabs cmpny-contact-tab-sec']/div[@class='tab-pane active']/div[@class='row add-tags-here']/div/div/div/div/div/div/div").is_enabled()
+    except Exception:
+        Refrsh_page.click()
+    break
+
+driver.find_element_by_xpath("//div[@class='main_wrapper']/div[@id='wrapper']/div/div/form/div[@class='tab-content campTabs cmpny-contact-tab-sec']/div[@class='tab-pane active']/div[@class='row add-tags-here']/div/div/div/div/div/div/div/p")
+
+
+
+
+
+
+
+
+
+
+
 driver.refresh()
 #time.sleep(20)
 
